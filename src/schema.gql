@@ -1,0 +1,1278 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Administration {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type DefaultConfig {
+  _id: String!
+  defaultSelectedTripId: String!
+}
+
+type NotificationEvent {
+  message: String!
+  type: String!
+}
+
+type Notification {
+  _id: String!
+}
+
+type File {
+  name: String!
+  url: String!
+  type: String!
+}
+
+type Bundle {
+  _id: String!
+
+  """Bundle's name"""
+  sceneName: String!
+
+  """Bundle's description"""
+  description: String!
+
+  """Bundle's file"""
+  path: File!
+}
+
+type TripLanguage {
+  tripId: String!
+  lang: String!
+}
+
+type Message {
+  userId: String!
+  content: String!
+}
+
+type User {
+  _id: String!
+  username: String!
+  email: String!
+  achievements: Int!
+  banned: Boolean!
+  EmailConfirmation: Boolean!
+
+  """Notification"""
+  notification: Notification!
+
+  """Selected Trip"""
+  selectedTrip: Trip!
+
+  """Trips"""
+  progress: [Progress!]!
+
+  """Picture"""
+  picture: File!
+
+  """Conversation"""
+  conversationBot: [Message!]!
+  points: Int!
+  createdAt: DateTime!
+  specialTrips: [String!]!
+  tripLanguages: [TripLanguage!]!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type DetailRating {
+  food: Int!
+  hospitality: Int!
+  comfortability: Int!
+  atmosphere: Int!
+}
+
+type Review {
+  _id: String!
+  feedback: String!
+  rating: Float!
+  user: User!
+
+  """Review's media"""
+  image: File
+
+  """Review's Detail Rating"""
+  travlerRating: DetailRating
+
+  """Reviewed item ID"""
+  reviewed: String
+}
+
+type Commerce {
+  _id: String!
+
+  """Commerce's name"""
+  name: String!
+
+  """Commerce's description"""
+  description: String!
+
+  """Commerce's telephone"""
+  tel: String!
+
+  """Commerce's address"""
+  address: String!
+
+  """Commerce's images"""
+  images: [File!]!
+
+  """Commerce's rating"""
+  generalRating: Float!
+
+  """Commerce's rating"""
+  generalDetailRating: DetailRating!
+
+  """Commerce's opening time"""
+  openingTime: OpeningTime!
+
+  """Commerce's postion"""
+  position: Postion!
+
+  """Commerce's type"""
+  type: String!
+
+  """Commerce's type"""
+  collectionType: String!
+
+  """Commerce's Profile"""
+  profile: Profile!
+
+  """Commerce's reviews"""
+  reviews: [Review!]!
+
+  """Commerce's AI image"""
+  targetImage: File!
+
+  """Commerce's reserveable"""
+  isReservable: Boolean!
+}
+
+union Profile = Restaurant | Bar | Cafe | GuestHouse | Hotel | JuiceShop | JwajemShop | Shop | Landmark | Mansion | Activity | RoofTop
+
+type Bar {
+  _id: String!
+
+  """Bar's stories"""
+  stories: [File!]!
+
+  """Bar's drinks"""
+  menu: [Drink!]!
+
+  """Menu Images"""
+  menuRaw: [File!]!
+
+  """Bar's includes"""
+  includes: [Addition!]!
+
+  """Bar's payments"""
+  payments: [Addition!]!
+}
+
+type Cafe {
+  _id: String!
+
+  """Bar's stories"""
+  stories: [File!]!
+
+  """Bar's drinks"""
+  menu: [Drink!]!
+
+  """Menu Images"""
+  menuRaw: [File!]!
+
+  """Bar's includes"""
+  includes: [Addition!]!
+
+  """Bar's payments"""
+  payments: [Addition!]!
+}
+
+type GuestHouse {
+  _id: String!
+
+  """Guesthouse's stories"""
+  stories: [File!]!
+
+  """Guesthouse's rooms"""
+  rooms: [Room!]!
+
+  """Guesthouse's includes"""
+  includes: [Addition!]!
+
+  """Guesthouse's payments"""
+  payments: [Addition!]!
+}
+
+type Hotel {
+  _id: String!
+
+  """Hotel's stories"""
+  stories: [File!]!
+
+  """Hotel's rooms"""
+  rooms: [Room!]!
+
+  """Hotel's includes"""
+  includes: [Addition!]!
+
+  """Hotel's payments"""
+  payments: [Addition!]!
+}
+
+type JuiceShop {
+  _id: String!
+
+  """Bar's stories"""
+  stories: [File!]!
+
+  """Bar's drinks"""
+  menu: [Drink!]!
+
+  """Menu Images"""
+  menuRaw: [File!]!
+
+  """Bar's includes"""
+  includes: [Addition!]!
+
+  """Bar's payments"""
+  payments: [Addition!]!
+}
+
+type JwajemShop {
+  _id: String!
+
+  """Bar's stories"""
+  stories: [File!]!
+
+  """Bar's drinks"""
+  menu: [Drink!]!
+
+  """Menu Images"""
+  menuRaw: [File!]!
+
+  """Bar's includes"""
+  includes: [Addition!]!
+
+  """Bar's payments"""
+  payments: [Addition!]!
+}
+
+type Shop {
+  _id: String!
+}
+
+type Landmark {
+  _id: String!
+
+  """Bar's includes"""
+  includes: [Addition!]!
+
+  """Bar's payments"""
+  payments: [Addition!]!
+}
+
+type Mansion {
+  _id: String!
+
+  """Restaurant's stories"""
+  stories: [File!]!
+
+  """Restaurant's includes"""
+  includes: [Addition!]!
+
+  """Restaurant's payments"""
+  payments: [Addition!]!
+}
+
+type Activity {
+  _id: String!
+
+  """Bar's stories"""
+  stories: [File!]!
+
+  """Bar's drinks"""
+  services: [Drink!]!
+
+  """Bar's includes"""
+  includes: [Addition!]!
+
+  """Bar's payments"""
+  payments: [Addition!]!
+}
+
+type RoofTop {
+  _id: String!
+
+  """Bar's stories"""
+  stories: [File!]!
+
+  """Bar's drinks"""
+  services: [Drink!]!
+
+  """Bar's includes"""
+  includes: [Addition!]!
+
+  """Bar's payments"""
+  payments: [Addition!]!
+}
+
+type Drink {
+  _id: String!
+
+  """Drink's name"""
+  name: String!
+
+  """Drink's description"""
+  description: String!
+
+  """Drink's images"""
+  images: [File!]!
+
+  """Drink's rating"""
+  rate: Float!
+
+  """Drink's price"""
+  price: Float!
+
+  """Drink's shop"""
+  shop: Commerce!
+}
+
+type Room {
+  _id: String!
+
+  """Room's name"""
+  name: String!
+
+  """Room's description"""
+  description: String!
+
+  """Room's images"""
+  images: [File!]!
+
+  """Room's rating"""
+  rate: Float!
+
+  """Room's capacity"""
+  capacity: Int!
+
+  """Room's price"""
+  price: Float!
+
+  """Room's includes"""
+  includes: [Addition!]!
+
+  """Room's commerce"""
+  commerce: Commerce!
+
+  """Room's reviews"""
+  reviews: [Review!]!
+}
+
+type DishCategory {
+  _id: String!
+
+  """Category's name"""
+  name: String!
+
+  """Category's icon"""
+  icon: File!
+
+  """Category's description"""
+  description: String!
+
+  """Category's dishs"""
+  dishs: [Dish!]!
+}
+
+type Dish {
+  _id: String!
+
+  """Dish's name"""
+  name: String!
+
+  """Dish's description"""
+  description: String!
+
+  """Dish's images"""
+  images: [File!]!
+
+  """Dish's rating"""
+  rate: Float!
+
+  """Dish's price"""
+  price: Float!
+
+  """Dish's resturant"""
+  restaurant: Commerce!
+
+  """Dish's category"""
+  category: DishCategory!
+}
+
+type Restaurant {
+  _id: String!
+
+  """Restaurant's stories"""
+  stories: [File!]!
+
+  """Restaurant's dishs"""
+  menu: [Dish!]!
+
+  """Menu Images"""
+  menuRaw: [File!]!
+
+  """Restaurant's includes"""
+  includes: [Addition!]!
+
+  """Restaurant's payments"""
+  payments: [Addition!]!
+}
+
+type OpeningTime {
+  startTime: DateTime!
+  startDay: String!
+  endtTime: DateTime!
+  endtDay: String!
+}
+
+type Postion {
+  longitude: Float!
+  latitude: Float!
+}
+
+type Addition {
+  name: String!
+  icon: File!
+}
+
+type Gallery {
+  id: String!
+  name: String!
+
+  """Place's images"""
+  photos: [File!]!
+}
+
+type Place {
+  _id: String!
+  thumbnail: File!
+  name: String!
+
+  """Place's images"""
+  images: [Gallery!]!
+
+  """Place's postion"""
+  position: Postion!
+  discription: String!
+  estimatedTime: String!
+  audio: [File!]!
+  bundle: Bundle!
+}
+
+type Chapter {
+  _id: String!
+  places: [Place!]!
+  thumbnail: File!
+  name: String!
+  estimatedTime: String!
+}
+
+type Supplier {
+  _id: String!
+  thumbnail: String!
+  name: String!
+}
+
+type Country {
+  _id: String!
+  name: String!
+}
+
+type Trip {
+  _id: String!
+  chapters: [Chapter!]!
+  name: String!
+  estimatedTime: String!
+  pricing: String!
+  isSpecial: Boolean!
+  suppliers: [Supplier!]!
+  country: Country!
+}
+
+type TripProgress {
+  _id: String!
+  chapters: [TripChapterProgress!]!
+  name: String!
+  estimatedTime: String!
+  pricing: String!
+  isSpecial: Boolean!
+  suppliers: [Supplier!]!
+  country: Country!
+  progress: Float!
+}
+
+type TripChapterProgress {
+  _id: String!
+  places: [PlaceProgress!]!
+  thumbnail: File!
+  name: String!
+  estimatedTime: String!
+  progress: Float!
+}
+
+type PlaceProgress {
+  _id: String!
+  thumbnail: File!
+  name: String!
+
+  """Place's images"""
+  images: [Gallery!]!
+
+  """Place's postion"""
+  position: Postion!
+  discription: String!
+  estimatedTime: String!
+  audio: [File!]!
+  bundle: Bundle!
+  done: Boolean!
+}
+
+type PlaceStatus {
+  """place ID"""
+  id: String!
+
+  """place status"""
+  status: Boolean!
+}
+
+type ChapterProgress {
+  """ID"""
+  _id: String!
+
+  """chapter ID"""
+  id: String!
+
+  """places done"""
+  places: [String!]!
+
+  """progree id"""
+  progress: String!
+}
+
+type Progress {
+  """ID"""
+  _id: String!
+
+  """Trip"""
+  trip: Trip!
+
+  """Trip"""
+  chapters: [ChapterProgress!]!
+
+  """UserId"""
+  userId: String!
+
+  """places done"""
+  placesId: [String!]!
+}
+
+type Filter {
+  _id: String!
+
+  """Filter's name"""
+  title: String!
+
+  """Filter's icon"""
+  icon: String!
+
+  """Filter's thumbnail"""
+  thumbnail: String!
+
+  """Filter's description"""
+  description: String!
+
+  """Filter's intent url"""
+  intent: String!
+}
+
+type Model {
+  _id: String!
+
+  """Model's name"""
+  title: String!
+
+  """Model's thumbnail"""
+  thumbnail: String!
+
+  """Model's file"""
+  file: File!
+}
+
+type ModelViewer {
+  _id: String!
+
+  """ModelViewer's title"""
+  title: String!
+
+  """ModelViewer's subtitle"""
+  subtitle: String!
+
+  """ModelViewer's description"""
+  description: String!
+
+  """ModelViewer's thumbnail"""
+  thumbnail: String!
+
+  """ModelViewer's file"""
+  file: File!
+}
+
+type AccessCode {
+  _id: String!
+  tripId: String
+  code: String
+  qrCode: String
+}
+
+type AuthResponse {
+  token: String!
+  role: String!
+  user: User!
+}
+
+type Feedback {
+  _id: String!
+  reporter: User!
+
+  """type of report"""
+  type: String!
+  feedback: String!
+}
+
+type Report {
+  _id: String!
+  reporter: User!
+  reported: User!
+
+  """type of report"""
+  type: String!
+  reason: String!
+}
+
+type Track {
+  _id: String!
+
+  """type of track"""
+  type: String!
+  targetId: String!
+  timeSpent: Int!
+}
+
+type Stat {
+  _id: String!
+  user: User!
+  tracks: Track!
+  timeSpent: Int!
+}
+
+type Suggestion {
+  _id: String!
+
+  """Commerces"""
+  commerces: [Commerce!]!
+  startTime: DateTime!
+  endTime: DateTime!
+}
+
+type Query {
+  currentUser: User!
+  rankList(start: Int! = 0, limit: Int! = 15): [User!]!
+  getProgress(tripId: String!): TripProgress!
+  getNotifications: [String!]!
+  trip: [Trip!]!
+  findOneTrip(id: String!): Trip!
+  findOneChapter(id: String!): Chapter!
+  findOnePlace(id: String!): Place!
+  getAllTripsAccessCodes: [AccessCode]
+  searchAccessCode(searchAccessCodeInput: SearchAccessCodeInput!): AccessCode!
+  getPlaceStatus(tripId: String!, placeId: String!): PlaceStatus!
+  bundle(id: String!): Bundle!
+  filters: [Filter!]!
+  filter(id: String!): Filter!
+  models: [Model!]!
+  model(id: String!): Model!
+  modelViewers: [ModelViewer!]!
+  modelViewer(id: String!): ModelViewer!
+  supplier: [Supplier!]!
+  commerces: [Commerce!]!
+  commerce(id: String!): Commerce!
+  allCommerceByType(type: String!): [Commerce!]!
+  findRoom(id: String!): Room!
+  commerceSearch(searchParams: SearchParamsInput!): [Commerce!]!
+  allDiscover: [Commerce!]!
+  businessSearch(searchParams: SearchParamsInput!): [Commerce!]!
+  discoverSearch(searchParams: SearchParamsInput!): [Commerce!]!
+  allDishCategory: [DishCategory!]!
+  getDishCategory(id: String!): DishCategory!
+  dishSearch(searchParams: DishSearchParamsInput!): [Dish!]!
+  review(id: String!): Review!
+  administration(id: Int!): Administration!
+  getSuggestions: Suggestion
+  feedbacks: [Feedback!]!
+  feedback(id: String!): Feedback!
+  reports: [Report!]!
+  report(id: String!): Report!
+  stats: [Stat!]!
+  stat(userId: String!): Stat!
+  countries: [Country!]!
+}
+
+input SearchAccessCodeInput {
+  code: String
+  qrCode: String
+}
+
+input SearchParamsInput {
+  """Commerce's category"""
+  category: String
+
+  """Commerce's name"""
+  name: String
+
+  """Commerce's start num"""
+  start: Int! = 0
+
+  """Commerce's array limit"""
+  limit: Int! = 15
+}
+
+input DishSearchParamsInput {
+  """Commerce's category"""
+  category: String
+
+  """Commerce's name"""
+  name: String
+
+  """Commerce's start num"""
+  start: Int! = 0
+
+  """Commerce's array limit"""
+  limit: Int! = 15
+
+  """Commerce's start num"""
+  min: Int! = 0
+
+  """Commerce's array limit"""
+  max: Int! = 1000000
+}
+
+type Mutation {
+  login(authInfo: AuthInfo!): AuthResponse
+  signup(informations: CreateUserInput!): User!
+  sendConfirmationCode: Int!
+  activateAccount(code: String!): Int!
+  refresh: String!
+  updateProgress(palaceId: String!): ChapterProgress!
+  addTripLanguage(tripId: String!, lang: String!): String!
+  registerDevice(id: String!): Int!
+  notify(notificationUserInput: NotificationUserInput!): Int!
+  notifyAll(notificationInput: NotificationInput!): Int!
+  notifyAllOnTime(notificationCronInput: NotificationCronInput!): Int!
+  removeNotifications(id: String!): Int!
+  createTrip(tripInput: TripInput!): Trip!
+  addChapter(addChapterInput: AddChapterInput!): Trip!
+  addPlace(addPlaceInput: AddPlaceInput!): Trip!
+  updateTrip(updateTripInput: UpdateTripInput!): Trip!
+  removeTrip(id: String!): Trip!
+  removeChapter(id: String!): Trip!
+  removePlace(id: String!): Trip!
+  addImageToPlaceGallery(id: String!, placeGalleryInput: PlaceGalleryInput!): Trip!
+  createTripAccessCode(tripAccessCodeInput: CreateAccessCodeInput!): [AccessCode!]!
+  applyTripAccessCode(applyAccessCodeInput: ApplyAccessCodeInput!): String!
+  createBundle(createBundleInput: CreateBundleInput!): Bundle!
+  createFilter(createFilterInput: CreateFilterInput!): Filter!
+  createModel(createModelInput: CreateModelInput!): Model!
+  createModelViewer(createModelViewerInput: CreateModelViewerInput!): ModelViewer!
+  updateBundle(updateBundleInput: UpdateBundleInput!): Bundle!
+  removeBundle(id: Int!): Bundle!
+  uploadBundle(bundle: UploadMedia!): Boolean!
+  createSupplier(supplierInput: SupplierInput!): Supplier!
+  createCommerce(createBaseCommerceInput: CreateBaseCommerceInput!): Commerce!
+  updateCommerce(updateBaseCommerceInput: UpdateBaseCommerceInput!): Commerce!
+  removeCommerce(id: String!): Commerce!
+  reviewCommerce(reviewInput: CreateReviewInput!): Review!
+  removeReviewCommerce(id: String!): Review!
+  removeImageCommerce(id: String!, idx: Int!): Commerce!
+  addStoriesToProfile(commerceId: String!, stories: UploadMedia!): Commerce!
+  addMenuToProfile(commerceId: String!, menu: UploadMedia!): Commerce!
+  reviewCommerceRoom(reviewInput: CreateReviewRoomInput!): Review!
+  addIncludesToProfile(additionInput: CreateAdditionInput!): Commerce!
+  addPaymentsToProfile(paymentInput: CreateAdditionInput!): Commerce!
+  addTargetImage(id: String!, image: UploadMedia!): Commerce!
+  removeReview(id: String!): Review!
+  removeRoomReview(id: String!): Review!
+  addDishToRestaurant(addDish: AddDishToResturant!): Dish!
+  removeDish(id: String!): Dish!
+  createDishCategory(dishCategoryInput: DishCategoryInput!): Restaurant!
+  removeDishCategory(id: String!): Restaurant!
+  addDrinkToBar(addDrink: CreateDrinkInput!): Drink!
+  addRoomToHotel(addRoom: RoomInput!): Room!
+  addDrinkToCafe(addDrink: CreateDrinkInput!): Drink!
+  addRoomToGuestHouse(addRoom: RoomInput!): Room!
+  addDrinkToJuiceshop(addDrink: CreateDrinkInput!): Drink!
+  createReview(createReviewInput: CreateReviewInput!): Review!
+  updateReview(updateReviewInput: UpdateReviewInput!): Review!
+  createAdministration(createAdministrationInput: CreateAdministrationInput!): Administration!
+  updateAdministration(updateAdministrationInput: UpdateAdministrationInput!): Administration!
+  removeAdministration(id: Int!): Administration!
+  addSuggestion(addSuggestion: CreateSuggestion!): Suggestion!
+  removeSuggestion(id: String!): Suggestion!
+  createFeedback(createFeedbackInput: CreateFeedbackInput!): Feedback!
+  updateFeedback(updateFeedbackInput: UpdateFeedbackInput!): Feedback!
+  removeFeedback(id: String!): Feedback!
+  createReport(createReportInput: CreateReportInput!): Report!
+  updateReport(updateReportInput: UpdateReportInput!): Report!
+  removeReport(id: String!): Report!
+  updateStat(updateStatInput: UpdateStatInput!): Stat!
+  createDefaultConfig(createDefaultConfigInput: CreateDefaultConfigInput!): DefaultConfig!
+}
+
+input AuthInfo {
+  email: String!
+  password: String!
+}
+
+input CreateUserInput {
+  email: String!
+  password: String!
+  username: String!
+  picture: UploadMedia!
+  selectedTripId: String
+}
+
+input UploadMedia {
+  files: [Upload!]
+  file: Upload
+  url: String
+  urls: [String!]
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+input NotificationUserInput {
+  id: String!
+  notification: NotificationInput!
+}
+
+input NotificationInput {
+  title: String!
+  body: String!
+  image: String
+}
+
+input NotificationCronInput {
+  name: String!
+  cronTime: String!
+  notification: NotificationInput!
+}
+
+input TripInput {
+  name: String!
+  estimatedTime: String!
+  pricing: String!
+
+  """An optional field to mark trip as special"""
+  isSpecial: Boolean
+
+  """An optional list of suppliers for trip"""
+  suppliers: [String!]
+
+  """An optional field of country"""
+  country: String
+}
+
+input AddChapterInput {
+  id: String!
+  chapter: ChapterInput!
+}
+
+input ChapterInput {
+  thumbnail: UploadMedia!
+  name: String!
+  estimatedTime: String!
+}
+
+input AddPlaceInput {
+  id: String!
+  place: PlaceInput!
+  bundle: BundleInput!
+}
+
+input PlaceInput {
+  thumbnail: UploadMedia!
+  name: String!
+
+  """Place's postion"""
+  position: PostionInput!
+  discription: String!
+  estimatedTime: String!
+  audio: UploadMedia!
+  bundle: String!
+}
+
+input PostionInput {
+  longitude: Float!
+  latitude: Float!
+}
+
+input BundleInput {
+  """Bundle's name"""
+  sceneName: String!
+
+  """Bundle's description"""
+  description: String
+}
+
+input UpdateTripInput {
+  id: String!
+}
+
+input PlaceGalleryInput {
+  id: String!
+  name: String!
+
+  """Place's images"""
+  photos: UploadMedia!
+}
+
+input CreateAccessCodeInput {
+  id: String!
+  count: Int = 1
+}
+
+input ApplyAccessCodeInput {
+  id: String!
+  code: String!
+}
+
+input CreateBundleInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input CreateFilterInput {
+  """Filter's name"""
+  title: String!
+
+  """Filter's icon"""
+  icon: String!
+
+  """Filter's thumbnail"""
+  thumbnail: String!
+
+  """Filter's description"""
+  description: String!
+
+  """Filter's intent url"""
+  intent: String!
+}
+
+input CreateModelInput {
+  """Model's name"""
+  title: String!
+
+  """Model's thumbnail"""
+  thumbnail: String!
+
+  """Model's file"""
+  file: UploadMedia!
+}
+
+input CreateModelViewerInput {
+  """ModelViewer's title"""
+  title: String!
+
+  """ModelViewer's subtitle"""
+  subtitle: String!
+
+  """ModelViewer's description"""
+  description: String!
+
+  """ModelViewer's thumbnail"""
+  thumbnail: String!
+
+  """ModelViewer's file"""
+  file: UploadMedia!
+}
+
+input UpdateBundleInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input SupplierInput {
+  name: String!
+  thumbnail: String!
+}
+
+input CreateBaseCommerceInput {
+  """Commerce's name"""
+  name: String!
+
+  """Commerce's description"""
+  description: String!
+
+  """Commerce's telephone"""
+  tel: String!
+
+  """Commerce's address"""
+  address: String!
+
+  """Commerce's type"""
+  type: String
+
+  """Commerce's images"""
+  images: UploadMedia!
+
+  """Commerce's opening time"""
+  openingTime: OpeningTimeInput!
+
+  """Commerce's postion"""
+  position: PositionInput!
+}
+
+input OpeningTimeInput {
+  startTime: DateTime!
+  startDay: String!
+  endtTime: DateTime!
+  endtDay: String!
+}
+
+input PositionInput {
+  longitude: Float!
+  latitude: Float!
+}
+
+input UpdateBaseCommerceInput {
+  id: String!
+
+  """Commerce's name"""
+  name: String
+
+  """Commerce's description"""
+  description: String
+
+  """Commerce's telephone"""
+  tel: String
+
+  """Commerce's address"""
+  address: String
+
+  """Commerce's images"""
+  images: UploadMedia
+
+  """Commerce's opening time"""
+  openingTime: OpeningTimeInput
+
+  """Commerce's postion"""
+  position: PositionInput
+}
+
+input CreateReviewInput {
+  commerceId: String!
+  feedback: String!
+  rating: Float!
+
+  """Review's media"""
+  image: UploadMedia
+
+  """Review's media"""
+  detailRating: DetailRatingInput!
+}
+
+input DetailRatingInput {
+  food: Int!
+  hospitality: Int!
+  comfortability: Int!
+  atmosphere: Int!
+}
+
+input CreateReviewRoomInput {
+  roomId: String!
+  feedback: String!
+  rating: Float!
+
+  """Review's media"""
+  image: UploadMedia
+
+  """Review's media"""
+  detailRating: DetailRatingInput!
+}
+
+input CreateAdditionInput {
+  """Commerce's id"""
+  commerceId: String!
+
+  """Profile's addition"""
+  addition: AdditionInput!
+}
+
+input AdditionInput {
+  name: String!
+  icon: UploadMedia!
+}
+
+input AddDishToResturant {
+  """Dish's resturantId"""
+  restaurant: String!
+
+  """Dish's category"""
+  category: String!
+
+  """Dish's name"""
+  name: String!
+
+  """Dish's description"""
+  description: String!
+
+  """Dish's images"""
+  images: UploadMedia!
+
+  """Dish's price"""
+  price: Float!
+}
+
+input DishCategoryInput {
+  """Category's name"""
+  name: String!
+
+  """Category's icon"""
+  icon: UploadMedia!
+
+  """Category's description"""
+  description: String!
+}
+
+input CreateDrinkInput {
+  """Drink's name"""
+  name: String!
+
+  """Drink's description"""
+  description: String!
+
+  """Drink's images"""
+  images: UploadMedia!
+
+  """Drink's price"""
+  price: Float!
+
+  """Drink's shop"""
+  shop: String!
+}
+
+input RoomInput {
+  """Room's name"""
+  name: String!
+
+  """Room's description"""
+  description: String!
+
+  """Room's images"""
+  images: UploadMedia!
+
+  """Room's capacity"""
+  capacity: Int!
+
+  """Room's price"""
+  price: Float!
+
+  """Room's commerce"""
+  commerce: String!
+}
+
+input UpdateReviewInput {
+  reviewId: String!
+  feedback: String!
+}
+
+input CreateAdministrationInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateAdministrationInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateSuggestion {
+  startTime: DateTime!
+  endTime: DateTime!
+  commerces: [String!]!
+}
+
+input CreateFeedbackInput {
+  """Report type"""
+  type: String!
+
+  """Reporting reason"""
+  feedback: String!
+}
+
+input UpdateFeedbackInput {
+  """Report type"""
+  type: String
+
+  """Reporting reason"""
+  feedback: String
+  id: Int!
+}
+
+input CreateReportInput {
+  """Reported id"""
+  reported: String!
+
+  """Report type"""
+  type: String!
+
+  """Reporting reason"""
+  reason: String!
+}
+
+input UpdateReportInput {
+  """Reported id"""
+  reported: String
+
+  """Report type"""
+  type: String
+
+  """Reporting reason"""
+  reason: String
+  id: String!
+}
+
+input UpdateStatInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateDefaultConfigInput {
+  defaultSelectedTripId: String!
+}
+
+type Subscription {
+  notification: NotificationEvent!
+}

@@ -1,0 +1,8 @@
+node_modules
+# *.yaml
+*.sh
+# config.yaml
+*.sh
+public
+# AuthKey_YP3V9VY8D9.p8
+.vscode

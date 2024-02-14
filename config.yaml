@@ -1,0 +1,13 @@
+server:
+  port: 4000
+  env: development
+db:
+  connectionUrl: mongodb+srv://demo-user:T6ifVBxfNkLkEets@demo-cluster.cxzh5yn.mongodb.net/database
+jwt:
+  secret: bJklVnCJaibSb3VFrrDRD2UJ1vDqez5Fc2o9jnDVcqaC36ri4K0otIQFKDbYoo3
+auth:
+  apple:
+    clientID: com.tynass.tynass.auth
+    teamID: MBT36Z3DSJ
+    keyID: YP3V9VY8D9
+    passReqToCallback: true

@@ -1,0 +1,7 @@
+./node_modules
+
+*.yaml
+*.sh
+*.zip
+*.bson
+*.metadata.json

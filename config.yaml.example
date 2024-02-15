@@ -1,0 +1,7 @@
+server:
+  port: 0
+  env: development
+db:
+  connectionUrl: ""
+jwt:
+  secret: ""
